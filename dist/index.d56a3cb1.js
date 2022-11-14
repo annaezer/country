@@ -478,38 +478,52 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 // 12. Schrijf een aparte functie die één regio-naam regio verwacht, en op basis van deze regio de correcte kleur-naam als string
 // teruggeeft. Gebruik deze, om de naam van het land in de juiste kleur weer te geven op de pagina. _Tip_: zorg ervoor
 // dat je CSS-classes maakt voor alle regio-kleuren!
-function countryByColour(regio) {
-    if (regio === "Africa") return "blue";
-    if (regio === "Americas") return "green";
-    if (regio === "Asia") return "red";
-    if (regio === "Europe") return "yellow";
-    if (regio === "Oceania") return "purple";
-    else return "black";
-}
+// function countryByColour(regio) {
+//     if (regio === "Africa") {
+//         return "blue";
+//     }
+//     if (regio === "Americas") {
+//         return "green";
+//     }
+//     if (regio === "Asia") {
+//         return "red";
+//     }
+//     if (regio === "Europe") {
+//         return "yellow";
+//     }
+//     if (regio === "Oceania") {
+//         return "purple";
+//     } else {
+//         return "black";
+//     }
+// }
+//
+// // Hier de functie met kleuren aangeroepen
+// console.log(countryByColour(country.region));
+// Dit wordt te moeilijk want weet niet hoe ik met die functie nu de connectie moet maken met CSS. Hij werkte wel als ik hem aanriep onder de andere functie maar hoe ik dat koppel? Pak dus Elwyns snellere manier. Eerst in CSS classes aangemaakt voor elke regio en daar de juiste kleur aangekoppeld. Dan via innerHTML het connecten met JavaScript.
+// Sowieso vond ik innerHTML methode veel handiger en simpeler werken dan al die createElements dus dat ga ik ook aanpassen. <span> ipv <h> voor naam zodat die samen met de vlag op 1 regel komt zoals voorbeeld.
 async function fetchData() {
     const URI = 'https://restcountries.com/';
     const ENDPOINT = 'v2/all';
     try {
         const result = await _axiosDefault.default.get(URI + ENDPOINT);
-        console.log(result);
+        const countries = result.data;
+        // Hier destructuring toegepast:
+        //     const { data: countries } = result;
         // Hier het resultaat gesorteerd:
-        result.data.sort((a, b)=>a.population - b.population
+        countries.sort((a, b)=>a.population - b.population
         );
-        result.data.map((country)=>{
-            // Hier de functie met kleuren aangeroepen
-            console.log(countryByColour(country.region));
+        // Hier door de resultaten heen mappen:
+        countries.map((country)=>{
+            // Hier referentie aangemaakt voor de <ul> in HTML:
             const list = document.getElementById('list');
+            // Wat variabelen aangemaakt om het makkelijker te maken:
             const flag = country.flag;
             const name = country.name;
-            const itemName = document.createElement('li');
-            itemName.setAttribute('class', 'countryName');
-            itemName.innerHTML = `<img class = "flagImage" src = "${flag}"/> ${name}`;
-            list.appendChild(itemName);
             const pop = country.population;
-            const itemPop = document.createElement('li');
-            itemPop.setAttribute('class', 'countryPop');
-            itemPop.textContent = `Has a population of ${pop} people`;
-            list.appendChild(itemPop);
+            // En hier de innerHTML methode toegepast op de list:
+            list.innerHTML += `<div class="inner-box"><img class="flagImage" src="${flag}" alt="${name}"/> <span id =countryName class="${country.region}">${name}</span>
+            <p class=population >Has a population of ${pop} people</p></div>`;
         });
     } catch (error) {
         console.error(error);

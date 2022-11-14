@@ -1,17 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1200px;
+    font-family: 'Sono', Arial, sans-serif;
+}
+
+.world-map {
+    width: 100vw;
+    height: 100vh;
+}
+
 ul {
+    column-count: 3;
     list-style: none;
+    background-color: hsl(312, 23%, 88%);
+    border-radius: 5px;
+    border: 2px dotted hsl(312, 23%, 78%);
+    padding: 20px 20px;
+}
+
+.inner-box {
+    padding: 10px;
+    margin: 10px;
+}
+
+h1 {
+    font-size: 80px;
+    text-transform: uppercase;
+    color: hsl(312, 23%, 78%);
+    text-align: center;
 }
 
 .flagImage {
-    width: 20px;
-    height: 20px;
+    width: 16px;
 }
 
+.population {
+    font-size: 14px;
+    margin: 10px;
+}
 
-/*}*/
+#countryName {
+    font-size: 16px;
+}
 
-/*`Africa`: blue*/
-/*// * `Americas`: green*/
-/*// * `Asia`: red*/
-/*// * `Europe`: yellow*/
-/*// * `Oceania`: purple*/
+.Africa {
+    color: blue;
+}
+
+.Americas {
+    color: green;
+}
+
+.Asia {
+    color: red;
+}
+
+.Europe {
+    color: yellow;
+}
+
+.Oceania {
+    color: purple;
+}
