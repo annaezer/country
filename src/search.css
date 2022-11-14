@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;400&display=swap');
+
+body{
+    font-family: 'Sono', Arial, sans-serif;
+}
+
+
+h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+    color: hsl(312, 23%, 78%);
+    text-align: center;
+}
+
+img {
+    width: 600px;
+
+}
+
+#countryInformation {
+    width: 1000px;
+    background-color: hsl(312, 23%, 88%);
+    border-radius: 5px;
+    border: 2px dotted hsl(312, 23%, 78%);
+    padding: 20px 20px;
+    margin: 20px;
+}
+
+#flag {
+  width: 20px;
+}
+
+.country-name {
+    font-size: 20px;
+}

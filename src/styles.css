@@ -24,6 +24,7 @@ ul {
     border-radius: 5px;
     border: 2px dotted hsl(312, 23%, 78%);
     padding: 20px 20px;
+    margin: 20px;
 }
 
 .inner-box {
@@ -70,3 +71,14 @@ h1 {
 .Oceania {
     color: purple;
 }
+
+p {
+    text-align: center;
+    font-size: 20px;
+}
+
+a, a:visited {
+    color: hsl(312, 23%, 78%);
+    text-decoration: none;
+}
+
