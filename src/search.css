@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;400&display=swap');
 
-body{
+body {
     font-family: 'Sono', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -32,4 +36,24 @@ img {
 
 .country-name {
     font-size: 20px;
+}
+
+#search-button {
+    background-color: hsl(312, 23%, 78%);
+    color: white;
+    border: 2px solid hsl(312, 23%, 88%);
+    width: 150px;
+    height: 45px;
+    font-family: 'Sono', Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#search-field {
+    width: 250px;
+    height: 40px;
+    font-family: 'Sono', Arial, sans-serif;
+    font-size: 16px;
+    margin: 10px;
 }
